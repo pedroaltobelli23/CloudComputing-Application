@@ -1,0 +1,36 @@
+{% extends "application/base.html" %}
+
+
+{% block content %}
+<div>
+    <h1>Movies</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Rate</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for movie in object_list %}
+    <tr>
+    <td>{{ movie.name }}</td>
+    <td>{{ movie.description }}</td>
+    <td>{{ movie.rate }}</td>
+    <td><a href="{% url "movie_view" movie.id %}">view</a></td>
+    <td><a href="{% url "movie_edit" movie.id %}">edit</a></td>
+    <td><a href="{% url "movie_delete" movie.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+
+<a href="{% url "movie_new" %}" class="btn btn-primary">New Movie</a>
+
+{% endblock %}

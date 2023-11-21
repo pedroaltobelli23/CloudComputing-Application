@@ -1,0 +1,13 @@
+{% extends "application/base.html" %}
+
+
+{% block content %}
+<div>
+    <h1>Movie Delete</h1>
+
+    <form method="post" class="delete-form">{% csrf_token %}
+        Are you sure you want to delete "{{ object }}" ?
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </form>
+</div>
+{% endblock %}
